@@ -1,0 +1,51 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background-color: #000000;
+  font-family: Prime;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+hr {
+  margin: 0;
+}
+
+p {
+  font-size: calc(2.5vh + 1vmin);
+}
+
+h1 {
+  font-size: 7vw;
+}
+
+h2 {
+  font-size: 3.5vw;
+  font-family: Oneday;
+}
+
+@font-face {
+  font-family: "Prime"; 
+  src: url("../public/fonts/Prime/Prime-Light.eot"); 
+  src: url("../public/fonts/Prime/Prime-Light.eot?#iefix") format("embedded-opentype"),
+  url("../public/fonts/Prime/Prime-Light.woff") format("woff"), 
+  url("../public/fonts/Prime/Prime-Light.ttf") format("truetype"); 
+  font-style: normal; 
+  font-weight: normal; 
+}
+  
+@font-face {
+  font-family: "Oneday"; 
+  src: url("../public/fonts/Oneday/ONEDAY.eot"); 
+  src: url("../public/fonts/Oneday/ONEDAY.eot?#iefix") format("embedded-opentype"),
+  url("../public/fonts/Oneday/ONEDAY.woff") format("woff"), 
+  url("../public/fonts/Oneday/ONEDAY.ttf") format("truetype"); 
+  font-style: normal; 
+  font-weight: normal; 
+}
