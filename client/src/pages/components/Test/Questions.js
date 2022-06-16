@@ -14,7 +14,6 @@ const Container = styled.div`
 
     h2 {
         width: 70%;
-        font-size: calc(2.5vh + 1vmin);
     }
 `;
 
@@ -36,6 +35,8 @@ const Buttons = styled.span`
         background-color: #1B1B1B;
         border: none;
         border-radius: 0.5rem;
+        font-family: Oneday;
+        font-size: calc(1.3vh + 1vmin);
     }
 
     button:disabled {
@@ -51,27 +52,32 @@ const Labels = styled.span`
     width: 70%;
     text-align: left;
 
-    input {
+    input[type=radio] {
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
-        height: 3vmin;
-        width: 3vmin;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 2.5vmin;
+        width: 2.5vmin;
         margin: 0;
         border: 0.2vmin solid #FFDF0F;
         border-radius: 50%;
+        cursor: pointer;
     }
 
-    input:checked {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 2px;
-        right: 2px;
-        bottom: 2px;
-        left: 2px;
-        background: yellow;
-        border-radius: 2px;
+    input[type=radio]::before {
+        content: '';
+        height: 1.3vmin;
+        width: 1.3vmin;
+        background: #FFDF0F;
+        border-radius: 50%;
+        opacity: 0;
+    }
+    
+    input[type=radio]:checked::before {
+        opacity: 1;
     }
 
     label {
@@ -91,7 +97,7 @@ const Questions = () => {
         if (index === page - 1) {
             return (
                 <Labels key={item._id}>
-                    <input type="radio" id="1" value="1" />
+                    <input type="radio" name="radio" id="1" value="1" />
                     <label>{item.firstAnswer}</label>
                 </Labels>
             )
@@ -102,7 +108,7 @@ const Questions = () => {
         if (index === page - 1) {
             return (
                 <Labels key={item._id}>
-                    <input type="radio" id="2" value="2" />
+                    <input type="radio" name="radio" id="2" value="2" />
                     <label>{item.secondAnswer}</label>
                 </Labels>
             )

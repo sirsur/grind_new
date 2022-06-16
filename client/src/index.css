@@ -26,7 +26,7 @@ h1 {
 }
 
 h2 {
-  font-size: 3.5vw;
+  font-size: calc(2.7vh + 1vmin);
   font-family: Oneday;
 }
 
