@@ -37,6 +37,7 @@ const Buttons = styled.span`
         border-radius: 0.5rem;
         font-family: Oneday;
         font-size: calc(1.3vh + 1vmin);
+        cursor: pointer;
     }
 
     button:disabled {
@@ -48,7 +49,7 @@ const Labels = styled.span`
     display: flex;
     gap: 3vmin;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     width: 70%;
     text-align: left;
 
@@ -92,12 +93,13 @@ const Questions = () => {
     const [items, setItems] = useState([]);
     const [page, setPage] = useState(1);
     const [count, setCount] = useState(1);
+    const [result, setResult] = useState([]);
 
     const mapFirst = items.map((item, index) => {
         if (index === page - 1) {
             return (
                 <Labels key={item._id}>
-                    <input type="radio" name="radio" id="1" value="1" />
+                    <input type="radio" name="radio" onChange={() => handleRadio(index, 1)} />
                     <label>{item.firstAnswer}</label>
                 </Labels>
             )
@@ -108,12 +110,18 @@ const Questions = () => {
         if (index === page - 1) {
             return (
                 <Labels key={item._id}>
-                    <input type="radio" name="radio" id="2" value="2" />
+                    <input type="radio" name="radio" onChange={() => handleRadio(index, 2)} />
                     <label>{item.secondAnswer}</label>
                 </Labels>
             )
         }
     });
+
+    function handleRadio(index, p) {
+        if (result[index] === undefined) { setResult(result => result.concat(p)); }
+        else { result[index] = p }
+        console.log(result[index]);
+    };
 
     function handlePrevious() {
         const p = page - 1;
@@ -156,11 +164,14 @@ const Questions = () => {
                 </h2>
                 {mapFirst}
                 {mapSecond}
+                {result}
                 <Buttons>
-                        <input type="hidden" name="page" value={ page } />
-                        <button disabled={page === 1} onClick={handlePrevious}>previous question</button>
-                        <input type="hidden" name="page" value={ page } />
-                        <button disabled={page === count} onClick={handleNext}>next question</button>
+                            <button disabled={page === 1} onClick={handlePrevious}>previous question</button>
+                        <form method = "post">
+                            <input type="hidden" name="result" value={result} />
+                            <button disabled={page !== count} type="submit">result</button>
+                        </form>
+                            <button disabled={page === count} onClick={handleNext}>next question</button>
                 </Buttons>
             </Container>
         );

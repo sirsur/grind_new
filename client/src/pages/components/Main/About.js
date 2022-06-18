@@ -8,7 +8,7 @@ const Container = styled.section`
     justify-content: space-around;
     width: 100vw;
     height: 100vh;
-    background-image: url(${process.env.PUBLIC_URL}/img/about.png);
+    background-image: url(${process.env.PUBLIC_URL}/img/about.webp);
     background-size: cover;
     background-position: center;
 

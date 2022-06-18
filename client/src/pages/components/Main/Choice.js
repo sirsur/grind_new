@@ -10,7 +10,7 @@ const Container = styled.section`
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-image: url(${process.env.PUBLIC_URL}/img/choice.png);
+    background-image: url(${process.env.PUBLIC_URL}/img/choice.webp);
     background-size: cover;
     background-position: center;
 

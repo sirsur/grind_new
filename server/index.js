@@ -12,6 +12,9 @@ const PORT = process.env.PORT || 3001;
 // init express
 const app = express();
 
+// body parser
+app.use(express.json());
+
 // route files
 const testRouter = require('./routes/test');
 

@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const test   = require('./../models/test');
+const parser = require('body-parser');
 
 // @desc GET all answers
 // @route GET 
@@ -19,7 +20,8 @@ router.get('/', async (req, res) => {
 // @route POST
 // @access ALL
 router.post('/', async (req, res) => {
-    res.redirect('/test');
+    console.log(req.body.result);
+    res.redirect(`../test?result=${req.body.result}`);
 });
 
 module.exports = router;

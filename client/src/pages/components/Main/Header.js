@@ -7,7 +7,7 @@ const Container = styled.header`
     justify-content: center;
     width: 100vw;
     height: 100vh;
-    background-image: url(${process.env.PUBLIC_URL}/img/header.png);
+    background-image: url(${process.env.PUBLIC_URL}/img/header.webp);
     background-size: cover;
     background-position: center;
 
