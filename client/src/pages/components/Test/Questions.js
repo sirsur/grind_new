@@ -164,7 +164,6 @@ const Questions = () => {
                 </h2>
                 {mapFirst}
                 {mapSecond}
-                {result}
                 <Buttons>
                             <button disabled={page === 1} onClick={handlePrevious}>previous question</button>
                         <form method = "post">

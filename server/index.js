@@ -2,6 +2,7 @@
 const express  = require('express');
 // const path     = require('path');
 const mongoose = require('mongoose');
+const bp = require('body-parser')
 
 // env 
 require('dotenv').config();
@@ -13,7 +14,8 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 // body parser
-app.use(express.json());
+app.use(bp.json())
+app.use(bp.urlencoded({ extended: true }))
 
 // route files
 const testRouter = require('./routes/test');
