@@ -99,7 +99,7 @@ const Questions = () => {
         if (index === page - 1) {
             return (
                 <Labels key={item._id}>
-                    <input type="radio" name="radio" onChange={() => handleRadio(index, 1)} />
+                    <input type="radio" name="radio" checked={result[index] === 1} onChange={() => handleRadio(index, 1)} />
                     <label>{item.firstAnswer}</label>
                 </Labels>
             )
@@ -110,7 +110,7 @@ const Questions = () => {
         if (index === page - 1) {
             return (
                 <Labels key={item._id}>
-                    <input type="radio" name="radio" onChange={() => handleRadio(index, 2)} />
+                    <input type="radio" name="radio" checked={result[index] === 2} onChange={() => handleRadio(index, 2)} />
                     <label>{item.secondAnswer}</label>
                 </Labels>
             )
@@ -119,8 +119,11 @@ const Questions = () => {
 
     function handleRadio(index, p) {
         if (result[index] === undefined) { setResult(result => result.concat(p)); }
-        else { result[index] = p }
-        console.log(result[index]);
+        else { 
+            let arr = [...result];
+            arr[index] = p;
+            setResult(arr);
+        }
     };
 
     function handlePrevious() {
