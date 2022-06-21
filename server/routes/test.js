@@ -2,7 +2,7 @@ const router = require('express').Router();
 const test   = require('./../models/test');
 
 // @desc GET all answers
-// @route GET 
+// @route GET /test
 // @access ALL
 router.get('/', async (req, res) => {
     try {
@@ -16,10 +16,11 @@ router.get('/', async (req, res) => {
 });
 
 // @desc POST all answers
-// @route POST
+// @route POST /test
 // @access ALL
 router.post('/', async (req, res) => {
-    res.redirect(`../test?result=${req.body.result}`);
+    res.redirect(`../result?answers=${req.body.result}`);
+    console.log(req.body.result);
 });
 
 module.exports = router;

@@ -4,6 +4,7 @@ import Main from './pages/Main';
 import Test from './pages/Test';
 import Hum from './pages/Hum';
 import Tech from './pages/Tech';
+import Result from './pages/Result';
 
 import {
   BrowserRouter as Router,
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/test" element={<Test />} />
         <Route path="/humanitarian" element={<Hum />} />
         <Route path="/technician" element={<Tech />} />
+        <Route path="/result" element={<Result />} />
       </Routes>
     </Router>
   );
