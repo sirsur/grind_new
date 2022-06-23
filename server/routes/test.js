@@ -20,7 +20,6 @@ router.get('/', async (req, res) => {
 // @access ALL
 router.post('/', async (req, res) => {
     res.redirect(`../result?answers=${req.body.result}`);
-    console.log(req.body.result);
 });
 
 module.exports = router;

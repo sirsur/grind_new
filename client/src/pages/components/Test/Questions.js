@@ -169,7 +169,7 @@ const Questions = () => {
                 {mapSecond}
                 <Buttons>
                             <button disabled={page === 1} onClick={handlePrevious}>previous question</button>
-                        <form method = "post">
+                        <form action="/test" method="post">
                             <input type="hidden" name="result" value={result} />
                             <button disabled={page !== count} type="submit">result</button>
                         </form>

@@ -1,42 +1,28 @@
-import React, { useState, useEffect }  from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
+import Info from './components/Result/Info';
+import Footer from './components/Test/Footer';
+
 const Container = styled.section`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(${process.env.PUBLIC_URL}/img/test.webp);
+    background-size: cover;
+    background-position: center;
 `;
 
-const Result = () => {
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [items, setItems] = useState('');
-
-    const queryString = window.location.search;
-
-    useEffect(() => {  
-        fetch('/result?' + new URLSearchParams(queryString).toString())
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    setIsLoaded(true);
-                    setItems(result);
-                },
-                (error) => {
-                    setIsLoaded(true);
-                    setError(error);
-                }
-            )
-    }, []);
-
-    if (error) {
-        return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
-        return <div>Loading...</div>;
-    } else {
-        return (
-            <Container>
-                <p>{items}</p>
-            </Container>
-        );
-    }
+const Test = () => {
+    return (
+        <Container>
+            <Info />
+            <Footer />
+        </Container>
+    );
 }
 
-export default Result;
+export default Test;
