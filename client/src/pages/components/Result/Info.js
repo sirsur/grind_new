@@ -18,27 +18,17 @@ const Container = styled.section`
 `;
 
 const Info = () => {
-    const [error, setError] = useState(null);
+    const [error, setError]       = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [nature, setNature] = useState(0);
-    const [tech, setTech] = useState(0);
-    const [human, setHuman] = useState(0);
-    const [art, setArt] = useState(0);
-    const [sign, setSign] = useState(0);
-
-    const queryString = window.location.search;
+    const [result, setResult]     = useState('');
 
     useEffect(() => {  
-        fetch('/result?' + new URLSearchParams(queryString).toString())
+        fetch('/result?' + new URLSearchParams(window.location.search).toString())
             .then(res => res.json())
             .then(
                 (result) => {
                     setIsLoaded(true);
-                    setNature(result.natureRes);
-                    setTech(result.techRes);
-                    setHuman(result.humanRes);
-                    setSign(result.signRes);
-                    setArt(result.artRes);
+                    setResult(result);
                 },
                 (error) => {
                     setIsLoaded(true);
@@ -55,11 +45,7 @@ const Info = () => {
         return (
             <Container>
                 <h2>your result:</h2>
-                <p>nature: {nature}</p>
-                <p>tech: {tech}</p>
-                <p>human: {human}</p>
-                <p>sign: {sign}</p>
-                <p>art: {art}</p>
+                <p>{ result }</p>
             </Container>
         );
     }
