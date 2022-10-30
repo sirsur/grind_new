@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const Container = styled.header`
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     width: 100vw;
     height: 100vh;
@@ -14,19 +15,22 @@ const Container = styled.header`
     background-position: center;
 
     a {
-        margin-bottom: auto;
+        position: absolute;
         display: flex;
         align-items: flex-start;
         width: calc(60vw + 15vmax);
+        font-size: calc(1.5vh + 1vmin);
+        text-decoration: none;
+        font-style: italic;
+        color: #FFFFFF;
     }
 
     h2 {
-        margin-bottom: auto;
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 15vw;
-        height: 8vh;
+        width: calc(17vw + 1vmin);
+        height: calc(11vh + 1vmin);
         border: 0.2rem solid #FFFFFF;
         background-color: transparent;
         color: #FFDF0F;
@@ -37,7 +41,7 @@ const Container = styled.header`
 const Header = () => {
     return (
         <Container>
-            <Link to="/">go back</Link>
+            <Link to="/">&lt;&lt; go back</Link>
             <h2>technician</h2>
         </Container>
     );

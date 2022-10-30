@@ -6,27 +6,17 @@ html, body {
   color: #FFFFFF;
   background-color: #000000;
   font-family: Prime;
-  overflow-x: hidden;
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
+  overflow-y: scroll; 
 }
 
-h1, h2, h3, p {
+body::-webkit-scrollbar {
+  display: none; 
+}
+
+h1, h2, h3, p, hr {
   margin: 0;
-}
-
-hr {
-  margin: 0;
-}
-
-p {
-  font-size: calc(2.5vh + 1vmin);
-}
-
-h1 {
-  font-size: 7vw;
-}
-
-h2 {
-  font-size: calc(2.7vh + 1vmin);
 }
 
 @font-face {

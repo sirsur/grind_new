@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Questions from './components/Test/Questions';
-import Footer from './components/Test/Footer';
+import Questions from './Test/Questions';
+import Footer from './Test/Footer';
 
 const Container = styled.section`
     display: flex;

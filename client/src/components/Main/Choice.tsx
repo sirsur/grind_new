@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, {useRef} from 'react';
 import styled from 'styled-components';
+import useHover from "../../hooks/useHover";
 
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const Container = styled.section`
     display: flex;
@@ -39,7 +40,7 @@ const Container = styled.section`
         padding-top: 1rem;
         border: 0.2rem solid #FFFFFF;
         background-color: transparent;
-        color: yellow;
+        color: #FFDF0F;
         font-size: 3.5vw;
         text-decoration: none;
         transition: 0.5s;
@@ -47,11 +48,11 @@ const Container = styled.section`
 
     a:hover {
         background-color: #000000;
-        border-color: yellow; 
+        border-color: #FFDF0F; 
     }
 
     h1 {
-        color: yellow;
+        color: #FFDF0F;
     }
 
     hr {
@@ -63,8 +64,11 @@ const Container = styled.section`
 `;
 
 const Choice = () => {
-    const [hum, setHum] = useState('humanitarian');
-    const [tech, setTech] = useState('technician');
+    const hum = useRef<HTMLAnchorElement>(null);
+    const tech = useRef<HTMLAnchorElement>(null);
+
+    const isHoveringHum = useHover(hum);
+    const isHoveringTech = useHover(tech);
 
     return (
         <Container>
@@ -82,11 +86,8 @@ const Choice = () => {
                         <br />
                         you are:
                     </p>
-                    <Link to="/humanitarian"
-                        onMouseOver={() => setHum('let`s go!')}
-                        onMouseLeave={() => setHum('humanitarian')}
-                    >
-                        { hum }
+                    <Link to="/humanitarian" ref={hum}>
+                        {isHoveringHum ? 'let`s go!' : 'humanitarian'}
                     </Link>
                 </div>
                 <div>
@@ -101,11 +102,8 @@ const Choice = () => {
                         <br />
                         you are:
                     </p>
-                    <Link to="/technician"
-                        onMouseOver={() => setTech('let`s go!')}
-                        onMouseLeave={() => setTech('technician')}
-                    >
-                        { tech }
+                    <Link to="/technician" ref={tech}>
+                        {isHoveringTech ? 'let`s go!' : 'technician'}
                     </Link>
                 </div>
             </span>

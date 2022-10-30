@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import Main from './pages/Main';
-import Test from './pages/Test';
-import Hum from './pages/Hum';
-import Tech from './pages/Tech';
-import Result from './pages/Result';
+import Main from './components/Main';
+import Test from './components/Test';
+import Hum from './components/Hum';
+import Tech from './components/Tech';
+import Result from './components/Result';
 
 import {
   BrowserRouter as Router,

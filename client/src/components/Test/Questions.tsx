@@ -12,8 +12,9 @@ const Container = styled.div`
     margin-top: calc((100vh - 65vh - 8vh - 1vmin) / 2);
     background-color: #2D2D2D;
 
-    h2 {
+    h1 {
         width: 70%;
+        font-size: calc(2.7vh + 1vmin);
     }
 `;
 
@@ -93,34 +94,34 @@ const Questions = () => {
     const [items, setItems] = useState([]);
     const [page, setPage] = useState(1);
     const [count, setCount] = useState(1);
-    const [result, setResult] = useState([]);
+    const [result, setResult] = useState([] as number[]);
 
     const mapFirst = items.map((item, index) => {
         if (index === page - 1) {
             return (
-                <Labels key={item._id}>
+                <Labels key={item['_id']}>
                     <input type="radio" name="radio" checked={result[index] === 1} onChange={() => handleRadio(index, 1)} />
-                    <label>{item.firstAnswer}</label>
+                    <label>{item['firstAnswer']}</label>
                 </Labels>
             )
-        }
+        } 
     });
 
     const mapSecond = items.map((item, index) => {
         if (index === page - 1) {
             return (
-                <Labels key={item._id}>
+                <Labels key={item['_id']}>
                     <input type="radio" name="radio" checked={result[index] === 2} onChange={() => handleRadio(index, 2)} />
-                    <label>{item.secondAnswer}</label>
+                    <label>{item['secondAnswer']}</label>
                 </Labels>
             )
         }
     });
 
-    function handleRadio(index, p) {
+    function handleRadio(index: number, p: number) {
         if (result[index] === undefined) { setResult(result => result.concat(p)); }
         else { 
-            let arr = [...result];
+            let arr : number[] = [...result];
             arr[index] = p;
             setResult(arr);
         }
@@ -153,24 +154,24 @@ const Questions = () => {
     }, []);
 
     if (error) {
-        return <div>Error: {error.message}</div>;
+        return <div>Error: {error['message']}</div>;
     } else if (!isLoaded) {
         return <div>Loading...</div>;
     } else {
         return (
             <Container>
-                <h2>
+                <h1>
                     let`s suppose that you are able to do either job
                     afret your graduation. but if you have to
                     choose only one option between two possibilities.
                     what will you prefer?
-                </h2>
+                </h1>
                 {mapFirst}
                 {mapSecond}
                 <Buttons>
                             <button disabled={page === 1} onClick={handlePrevious}>previous question</button>
                         <form action="/test" method="post">
-                            <input type="hidden" name="result" value={result} />
+                            <input type="hidden" name="result" value={result.toString()} />
                             <button disabled={page !== count} type="submit">result</button>
                         </form>
                             <button disabled={page === count} onClick={handleNext}>next question</button>

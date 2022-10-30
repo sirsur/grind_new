@@ -31,11 +31,11 @@ const Container = styled.section`
 
     a:hover {
         background-color: #000000;
-        border-color: yellow; 
+        border-color: #FFDF0F; 
     }
 
     h1 {
-        color: yellow;
+        color: #FFDF0F;
     }
 
     hr {

@@ -1,4 +1,5 @@
-import React, { useState, useEffect }  from 'react';
+import { useState, useEffect }  from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Container = styled.section`
@@ -12,7 +13,25 @@ const Container = styled.section`
     margin-top: calc((100vh - 65vh - 8vh - 1vmin) / 2);
     background-color: #2D2D2D;
 
-    h2 {
+    a {
+        display: flex;
+        align-items: flex-start;
+        width: 70%;
+        font-size: calc(1.5vh + 1vmin);
+        text-decoration: none;
+        font-style: italic;
+        color: #FFFFFF;
+    }
+
+    h1 {
+        font-size: calc(2.7vh + 1vmin);
+    }
+
+    p {
+        font-size: calc(2.5vh + 1vmin);
+    }
+
+    h1, p {
         width: 70%;
     }
 `;
@@ -38,13 +57,14 @@ const Info = () => {
     }, []);
 
     if (error) {
-        return <div>Error: {error.message}</div>;
+        return <div>Error: {error['message']}</div>;
     } else if (!isLoaded) {
         return <div>Loading...</div>;
     } else {
         return (
             <Container>
-                <h2>your result:</h2>
+                <Link to="/">&lt;&lt; go back</Link>
+                <h1>your result:</h1>
                 <p>{ result }</p>
             </Container>
         );

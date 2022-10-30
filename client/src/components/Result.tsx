@@ -1,8 +1,7 @@
-import React from 'react';
 import styled from 'styled-components';
 
-import Info from './components/Result/Info';
-import Footer from './components/Test/Footer';
+import Info from './Result/Info';
+import Footer from './Test/Footer';
 
 const Container = styled.section`
     display: flex;

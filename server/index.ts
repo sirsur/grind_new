@@ -1,6 +1,5 @@
 // dependencies
 const express  = require('express');
-// const path     = require('path');
 const mongoose = require('mongoose');
 const bp = require('body-parser')
 
@@ -20,12 +19,14 @@ app.use(bp.urlencoded({ extended: true }))
 // route files
 const testRouter = require('./routes/test');
 const resultRouter = require('./routes/result');
+const techRouter = require('./routes/tech');
 
 // app.use(express.static(path.resolve(__dirname, 'public')));
 
 // routes usage
 app.use('/test', testRouter);
 app.use('/result', resultRouter);
+app.use('/tech', techRouter);
 
 // database connection and listening
 const uri = process.env.ATLAS_URI;

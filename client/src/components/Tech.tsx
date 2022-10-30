@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Header from './components/Tech/Header';
-import Between from './components/Tech/Between';
-import List from './components/Tech/List';
-import Footer from './components/Test/Footer';
+import Header from './Tech/Header';
+import Between from './Tech/Between';
+import List from './Tech/List';
+import Footer from './Test/Footer';
 
 const Tech = () => {
     return (

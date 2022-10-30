@@ -6,5 +6,5 @@ const testSchema = new Schema ({
     secondAnswer: { type: String, required: true, }
 });
 
-const test = mongoose.model('test', testSchema);
+const testModel = mongoose.model('testModel', testSchema);
 module.exports = test;
